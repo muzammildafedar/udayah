@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class EncryptionHelper {
-  static final key = encrypt.Key.fromUtf8("aIopEsdhAamkse@nmandsoplQhIdae13"); // Ensure this is the same as in Node.js
+  static final key = encrypt.Key.fromUtf8("your key"); // Ensure this is the same as in Node.js
 
   static String decrypt(String encryptedData, String ivBase64) {
     final iv = encrypt.IV.fromBase64(ivBase64); // Convert IV from base64 to bytes
