@@ -1,4 +1,3 @@
-```md
 # Udayah
 
 Welcome to Udayah! We are calling all open-source enthusiasts to contribute to this project. Feel free to add new features, report issues, or suggest improvements. Before contributing, kindly outline the use case, benefits, and aim of your proposed feature or changes.
@@ -6,7 +5,7 @@ Welcome to Udayah! We are calling all open-source enthusiasts to contribute to t
 ## Tech Stack
 
 - **Frontend:** Flutter
-- **Backend:** Node.js
+- **Backend:** Node.js, Firebase, Aws
 
 ## Local Setup
 
@@ -77,5 +76,5 @@ We look forward to your contributions!
 
 Happy coding!
 
-**Udayah Team**
-``
+## Support
+For any kind of support, please reach out to us at: Email: [udayah.in.reach@gmail.com](mailto:udayah.in.reach@gmail.com)
