@@ -252,7 +252,7 @@ class LandingPage extends StatelessWidget {
             backgroundColor: Styles.brandBackgroundColor,  // Set the background color
           ),
           onPressed: () {
-             html.window.open('https://forms.gle/ZGb37M3cnTTLhpSn9','new tab');
+             html.window.open('https://github.com/muzammildafedar/udayah','new tab');
             // showDialog(
             //   context: context,
             //   builder: (BuildContext context) {
