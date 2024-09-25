@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Udayah offers AI-powered tools to help job hunters create standout resumes, send personalized cold emails, and optimize applications with an AI ATS system. Take control of your job search with our innovative platform.">
+  <meta name="keywords" content="HR Emails, AI resume builder, cold email templates, AI applicant tracking system, job hunting tools, job search optimization, job seekers, Udayah platform">
+  <meta name="author" content="Udayah">
+  <meta name="robots" content="index, follow">
+  <title>Udayah | AI-Powered Job Search Tools & Resume Builder</title>
+  
+  <!-- Open Graph for social media -->
+  <meta property="og:title" content="Udayah | AI-Powered Tools for Job Hunters">
+  <meta property="og:description" content="Boost your job search with Udayah’s AI-powered tools for resume creation, cold emailing, and application optimization.">
+  <meta property="og:image" content="https://yourwebsite.com/image.jpg"> <!-- Use your website logo or image -->
+  <meta property="og:url" content="https://www.udayah.in/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card for better presentation on Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Udayah | AI Tools for Job Hunters">
+  <meta name="twitter:description" content="Leverage AI to build resumes, send cold emails, and optimize job applications.">
+  <meta name="twitter:image" content="https://udayah.in/favicon.png">
+  
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="udayah">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+  <style>
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #loader .spinner-grow {
+      width: 1rem;
+      height: 1rem;
+      margin: 5px;
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="loader" style="display: flex;">
+    <div class="container">
+      <div class="spinner-grow text-muted"></div>
+      <div class="spinner-grow text-primary"></div>
+      <div class="spinner-grow text-success"></div>
+      <div class="spinner-grow text-info"></div>
+      <div class="spinner-grow text-warning"></div>
+      <div class="spinner-grow text-danger"></div>
+      <div class="spinner-grow text-secondary"></div>
+      <div class="spinner-grow text-dark"></div>
+      <div class="spinner-grow text-light"></div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        // Attempt to hide loader after a small delay to ensure Flutter is loaded
+        setTimeout(function () {
+          loader.style.display = 'none';
+        }, 5000); // Adjust delay as needed
+      }
+    });
+  </script>
+
+  <script>
+    window.addEventListener('load', function (ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.udayah.in/",
+    "name": "Udayah",
+    "description": "Udayah offers AI-powered tools for job hunters, including resume creation, cold emailing, and application optimization.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.udayah.in?s={cold email}",
+      "query-input": "required name=cold email"
+    }
+  }
+  </script>
+  
+</body>
+
+</html>
