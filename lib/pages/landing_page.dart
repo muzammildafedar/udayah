@@ -62,6 +62,7 @@ class LandingPage extends StatelessWidget {
                     SizedBox(height: 20),
                     Wrap(
                       spacing: isMobile ? 10 : 30.0,
+                      runSpacing: isMobile ? 10 : 0,
                       alignment: WrapAlignment.center,
                       children: [
                         _buildMenuButton(context, 'Terms & Conditions'),
