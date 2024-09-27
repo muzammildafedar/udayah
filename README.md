@@ -1,6 +1,11 @@
 # Udayah
 
-Welcome to Udayah! We are calling all open-source enthusiasts to contribute to this project. Feel free to add new features, report issues, or suggest improvements. Before contributing, kindly outline the use case, benefits, and aim of your proposed feature or changes.
+Welcome to Udayah!
+
+We invite all open-source enthusiasts to join us in building a free platform for job seekers. In a world where many services for resumes, job emails, and related resources often come at a cost, Udayah stands out as a free, open-source alternative. Whether it’s adding new features, reporting issues, or suggesting improvements, your contributions can help make Udayah a valuable resource for job seekers.
+
+Before contributing, kindly outline the use case, benefits, and goal of your proposed feature or changes. Together, let’s build something meaningful, accessible, and free for everyone!
+
 
 ## Tech Stack
 
