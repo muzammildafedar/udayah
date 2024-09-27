@@ -11,6 +11,9 @@ const crypto = require('crypto');
 const algorithm = 'aes-256-cbc'; // AES encryption algorithm
 const key = Buffer.from(process.env.ENCRYPTION_KEY, 'utf8').slice(0, 32); // Ensure key is 32 bytes
 const port = process.env.PORT || 3000;
+//import routers
+const hrEmailRoutes = require('./routes/hrEmailRoutes');
+
 
 app.use(cors({
   origin: '*', // Update if needed
@@ -21,7 +24,7 @@ app.use(cors({
 //app.use(cors());
 app.use(express.json());
 app.get('/', async (req, res) => {
-      res.status(200).json({ success: 'Working bro..' });
+  res.status(200).json({ success: 'Working bro..' });
 });
 //app.us('/.well-known', express.static(path.join(__dirname, '.well-known')));
 
@@ -41,6 +44,9 @@ function encrypt(text) {
   };
 }
 
+//routers
+app.use(hrEmailRoutes);
+
 app.post('/api/send-email', async (req, res) => {
   const { smtpDetails, resumeUrl, from, to, subject, body } = req.body;
 
@@ -53,7 +59,7 @@ app.post('/api/send-email', async (req, res) => {
     const transporter = nodemailer.createTransport({
       logger: true,  // Enables logging
       debug: true,   // Enable debugging output
-    
+
       host: smtpDetails.host,
       port: smtpDetails.port,
       secure: smtpDetails.secure, // true for 465, false for other ports
