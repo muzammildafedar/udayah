@@ -102,7 +102,7 @@ void showPopLandingPage(BuildContext context, String title) {
                           text: 'Who We Are:\n', style: AppTextStyles.regular),
                       TextSpan(
                         text:
-                            'Udayah is an early-stage startup, currently run by a dedicated solopreneur with a deep understanding of the challenges faced by job seekers and students entering the workforce. We\'re committed to providing innovative solutions that cater to the needs of both groups in today\'s competitive landscape.\n\n',
+                            'Udayah is an open-source tool, With a deep understanding of the challenges faced by job seekers and students entering the workforce. We\'re committed to providing innovative solutions that cater to the needs of both groups in today\'s competitive landscape.\n\n',
                         style: AppTextStyles.regular,
                       ),
                       TextSpan(
