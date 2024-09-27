@@ -65,7 +65,7 @@ class LandingPage extends StatelessWidget {
                       alignment: WrapAlignment.center,
                       children: [
                         _buildMenuButton(context, 'Terms & Conditions'),
-                        _buildMenuButton(context, 'Refund Policy'),
+                        // _buildMenuButton(context, 'Refund Policy'),
                         _buildMenuButton(context, 'About Us'),
                         _buildMenuButton(context, 'Privacy Policy'),
                         _buildMenuButton(context, 'Contact Us'),
