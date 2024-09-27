@@ -24,7 +24,6 @@ class _EmailTemplatesState extends State<EmailTemplates> {
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
 
-  
   String? _resumeUrl;
   bool _isLoading = true;
   String? _errorMessage;
@@ -38,11 +37,12 @@ class _EmailTemplatesState extends State<EmailTemplates> {
     try {
       final fileProvider = Provider.of<EmailProvider>(context, listen: false);
       final url = await fileProvider.getLatestResumeUrl();
-      
-      setState(() {
-        _resumeUrl = url;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _resumeUrl = url;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
       setState(() {
         _errorMessage = 'Failed to fetch resume: $e';
@@ -123,11 +123,11 @@ class _EmailTemplatesState extends State<EmailTemplates> {
 
   @override
   Widget build(BuildContext context) {
-     final comapaiesProvider =
-          Provider.of<CompaniesProvider>(context, listen: false);
+    final comapaiesProvider =
+        Provider.of<CompaniesProvider>(context, listen: false);
     _emailController.text = comapaiesProvider.selectedEmail;
     return Consumer<EmailProvider>(builder: (context, data, child) {
-        if (data.loading) {
+      if (data.loading) {
         return Center(child: CircularProgressIndicator());
       }
       return Container(
@@ -145,10 +145,7 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Send Email',
-                        style: AppTextStyles.regularBlack
-                      ),
+                      Text('Send Email', style: AppTextStyles.regularBlack),
                       SizedBox(height: 16.0),
                       TextFormField(
                         style: AppTextStyles.regularBlack,
@@ -187,7 +184,6 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                                   labelText: provider.selectedFileName == null
                                       ? 'Attach your resume'
                                       : 'Resume attached: ${provider.selectedFileName}',
-                                  
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
@@ -213,22 +209,26 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text('Latest Resume:', style: AppTextStyles.regularBlack,),
+                                        Text(
+                                          'Latest Resume:',
+                                          style: AppTextStyles.regularBlack,
+                                        ),
                                         SizedBox(height: 20),
                                         ElevatedButton(
                                           onPressed: () {
                                             _launchURL(_resumeUrl!);
                                           },
-                                          child: Text('View Resume', style: AppTextStyles.regularBlack,),
+                                          child: Text(
+                                            'View Resume',
+                                            style: AppTextStyles.regularBlack,
+                                          ),
                                         ),
                                       ],
                                     )
-                                  : Text('No resume found.', style:AppTextStyles.regularBlack),
+                                  : Text('No resume found.',
+                                      style: AppTextStyles.regularBlack),
                       SizedBox(height: 16.0),
-                      Text(
-                        'Email Content',
-                        style:AppTextStyles.regularBlack
-                      ),
+                      Text('Email Content', style: AppTextStyles.regularBlack),
                       SizedBox(height: 8.0),
                       Container(
                         decoration: BoxDecoration(
@@ -242,7 +242,6 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                           controller: _htmlEditorController,
                           htmlEditorOptions: HtmlEditorOptions(
                             hint: 'Your email content here...',
-                            
                           ),
                           otherOptions: OtherOptions(
                             height: 400,
