@@ -13,6 +13,16 @@ const HREmail = sequelize.define('HREmail', {
     },
     website: {
         type: DataTypes.STRING,
+        allowNull: false,
+    },
+    added_by: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    visible: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
     },
 }, {
     timestamps: true,

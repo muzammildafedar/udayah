@@ -18,7 +18,8 @@ The request body must be in JSON format and include the following fields:
 {
     "email_address": "hr@example.com",
     "company_name": "Example Company",
-    "website": "https://example.com"
+    "website": "https://example.com",
+    "added_by": "user@example.com"
 }
 ```
 
@@ -48,7 +49,8 @@ The request body must be in JSON format and include the following fields:
 {
     "email_address": "InvalidEmail.com",
     "company_name": "Example Company",
-    "website": "https://example.com"
+    "website": "https://example.com",
+    "added_by": "user@example.com"
 }
 ```
 
@@ -70,10 +72,71 @@ The request body must be in JSON format and include the following fields:
 
 **Status Code**: `409 Bad Request` for duplicate emails
 
-**Example Request Body**:
-
 ```json
 {
     "error": "Email address already exists"
+}
+```
+
+### [GET] /api/companies/:company_id?
+
+
+## Description
+
+Fetches company information from the database.
+The endpoint can return details for a specific company if the `company_id` is provided. If `company_id` is not provided, it returns a list of all companies.
+
+## Parameters
+- **Optional Route Parameter:**
+  - `company_id` (integer, optional): The unique identifier of the company.
+    - **Validation**: Must be a positive integer greater than 0.
+    - **Example**: 
+      - Valid: `1`, `5`, `100`
+      - Invalid: `0`, `-1`, `abc`
+
+## Request Example
+- To fetch all companies:
+```
+GET /api/companies
+```
+
+- To fetch company with id 2:
+```
+GET /api/companies/2
+```
+## Response (Success)
+
+- **Status Code**: `200 ok`
+
+```json
+{
+    "iv": "K3YrDTOwrJaSJ4n0H1rjJg==",
+    "encryptedData": "d0RZrXdNhdQadzIz9ratZWx/m6PvBxKpgK8M9E2bgnaLu7oKHHU3JpYdOr/dKFCD1apuq6xUUTlDQBTI2CW4RhrQe7GpRU8d8TSSbKfeW7qHhLAwlJKCmOMcBTZ8jMMSqrgFoyYIZvqpDPFTD8VsE2mi8y3sUOlCkuZWS7XXHnRSJseMTp4iHhak+LO0BH91vvec2DxrEKbDM1dvY80IYXfuOzBoar+PyKfli7iJbmVCYG9MObdTVi6peJptL4O7YayrXTWQ/aEcBYim6vVLU1NKBrpnMiorG2DceKTwGAVBnmI0xMk/5ndgIutTskFD"
+}
+```
+
+## Response (Error)
+
+- **Status Code**: `400 Bad Request`
+
+```json
+{
+    "errors": [
+        {
+            "type": "field",
+            "value": "-25",
+            "msg": "Company ID must be a positive integer",
+            "path": "company_id",
+            "location": "params"
+        }
+    ]
+}
+```
+
+- **Status Code**: `404 Not Found`
+
+```json
+{
+    "message": "email not found"
 }
 ```
