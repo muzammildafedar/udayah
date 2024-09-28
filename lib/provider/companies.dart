@@ -25,6 +25,10 @@ class CompaniesProvider with ChangeNotifier {
     _selectedEmail = val;
     notifyListeners();
   }
+  deselectEmailAddress() {
+    _selectedEmail = '';
+    notifyListeners();
+  }
 
   Future<List<CompaniesEmail>> fetchEmails() async {
     String apiUrl = '${baseUrl}/companies';

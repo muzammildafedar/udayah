@@ -71,93 +71,108 @@ class _CompaniesListState extends State<CompaniesList> {
       }
       return CategoryBox(
         title: "Companies",
+        suffix: data.selectedEmail.isEmpty
+            ? null
+            : GestureDetector(
+              onTap: () {
+                data.deselectEmailAddress();
+              },
+                child: Transform.flip(
+                    flipX: true, child: Icon(Icons.arrow_back_ios))),
         children: [
           Expanded(
             child: Column(
               children: [
                 // Search Bar
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    style: AppTextStyles.regularBlack,
-                    controller: _searchController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      hintText: "Search Companies",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[200],
-                    ),
-                  ),
-                ),
+                data.selectedEmail.isEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          style: AppTextStyles.regularBlack,
+                          controller: _searchController,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            hintText: "Search Companies",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            filled: true,
+                            fillColor: Colors.grey[200],
+                          ),
+                        ),
+                      )
+                    : Container(),
                 Responsive.isMobile(context)
                     ? Expanded(
                         child: Column(
                           children: [
-                            Expanded(
-                              flex: 4,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.1),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                child: ListView.builder(
-                                  controller: _scrollController,
-                                  itemCount: data.emails.length,
-                                  itemBuilder: (context, index) {
-                                    final email = data.emails[index];
+                            data.selectedEmail.isEmpty
+                                ? Expanded(
+                                    flex: 4,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.1),
+                                            spreadRadius: 2,
+                                            blurRadius: 5,
+                                            offset: Offset(0, 3),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ListView.builder(
+                                        controller: _scrollController,
+                                        itemCount: data.emails.length,
+                                        itemBuilder: (context, index) {
+                                          final email = data.emails[index];
 
-                                    return Card(
-                                      margin: EdgeInsets.symmetric(
-                                        horizontal: 16.0,
-                                        vertical: 8.0,
-                                      ),
-                                      elevation: 2.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      child: ListTile(
-                                        onTap: () {
-                                          data.selectEmailAddress(
-                                              email.emailAddress);
-                                          // print("Pressed ${filteredCompanies[index]}");
+                                          return Card(
+                                            margin: EdgeInsets.symmetric(
+                                              horizontal: 16.0,
+                                              vertical: 8.0,
+                                            ),
+                                            elevation: 2.0,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            child: ListTile(
+                                              onTap: () {
+                                                data.selectEmailAddress(
+                                                    email.emailAddress);
+                                                // print("Pressed ${filteredCompanies[index]}");
+                                              },
+                                              leading: CustomCircleProfile(
+                                                  getDomainFromEmail(
+                                                      email.emailAddress),
+                                                  "https://logo.clearbit.com/${getDomainFromEmail(email.emailAddress)}"),
+
+                                              //  CircleAvatar(
+                                              //   backgroundImage: NetworkImage(
+                                              //       "https://logo.clearbit.com/${getDomainFromEmail(email.emailAddress)}"),
+                                              // ),
+                                              title: Text(
+                                                email.emailAddress,
+                                                style:
+                                                    AppTextStyles.regularBlack,
+                                              ),
+                                              // subtitle: Text(email.emailAddress),
+                                              trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  size: 16.0),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                horizontal: 16.0,
+                                                vertical: 8.0,
+                                              ),
+                                            ),
+                                          );
                                         },
-                                        leading: CustomCircleProfile(
-                                            getDomainFromEmail(
-                                                email.emailAddress),
-                                            "https://logo.clearbit.com/${getDomainFromEmail(email.emailAddress)}"),
-
-                                        //  CircleAvatar(
-                                        //   backgroundImage: NetworkImage(
-                                        //       "https://logo.clearbit.com/${getDomainFromEmail(email.emailAddress)}"),
-                                        // ),
-                                        title: Text(
-                                          email.emailAddress,
-                                          style: AppTextStyles.regularBlack,
-                                        ),
-                                        // subtitle: Text(email.emailAddress),
-                                        trailing: Icon(Icons.arrow_forward_ios,
-                                            size: 16.0),
-                                        contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 16.0,
-                                          vertical: 8.0,
-                                        ),
                                       ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
+                                    ),
+                                  )
+                                : Container(),
                             Container(
                               color: Colors.grey[300],
                               height: 1,
