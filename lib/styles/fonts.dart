@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // Define TextStyles for Poppins fonts
 class AppTextStyles {
-  // Headings
+  // Headings for Desktop
   static const TextStyle heading1 = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.bold,
@@ -51,6 +51,49 @@ class AppTextStyles {
     fontSize: 16,
   );
 
+  // Mobile-specific headings
+  static const TextStyle heading1Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 24, // Smaller font size for mobile
+  );
+
+  static const TextStyle heading2Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 22, // Smaller for mobile
+  );
+
+  static const TextStyle heading3Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 20,
+  );
+
+  static const TextStyle heading4Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 18,
+  );
+
+  static const TextStyle heading5Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 16,
+  );
+
+  static const TextStyle heading6Mobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 14,
+  );
+
   // Regular Styles
   static const TextStyle regular = TextStyle(
     fontFamily: 'Poppins',
@@ -59,13 +102,14 @@ class AppTextStyles {
     fontSize: 16,
   );
 
-  // Regular Styles
   static const TextStyle regularBlack = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.normal,
     color: Colors.black,
     fontSize: 16,
   );
+
+  // Light and Thin styles
   static const TextStyle light = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w300,
@@ -80,6 +124,7 @@ class AppTextStyles {
     fontSize: 16,
   );
 
+  // Medium to ExtraBold styles
   static const TextStyle medium = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
