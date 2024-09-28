@@ -3,13 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:provider/provider.dart';
-import 'package:shippi/models/companies_list.dart';
-import 'package:shippi/provider/companies.dart';
-import 'package:shippi/responsive.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/widgets/email_temp.dart';
-import 'package:shippi/styles/styles.dart';
-import 'package:shippi/widgets/category_box.dart';
+import 'package:udayah/models/companies_list.dart';
+import 'package:udayah/provider/companies.dart';
+import 'package:udayah/responsive.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/widgets/email_temp.dart';
+import 'package:udayah/styles/styles.dart';
+import 'package:udayah/widgets/category_box.dart';
 import 'dart:html' as html;
 
 class CompaniesList extends StatefulWidget {

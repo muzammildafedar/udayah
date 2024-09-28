@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:shippi/responsive.dart';
+import 'package:udayah/responsive.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

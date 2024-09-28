@@ -1,5 +1,5 @@
-import 'package:shippi/responsive.dart';
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/responsive.dart';
+import 'package:udayah/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 class UpgradeProSection extends StatelessWidget {

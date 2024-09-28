@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:shippi/provider/auth.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/provider/auth.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/styles/styles.dart';
 
 class LoginPage extends StatelessWidget {
   @override

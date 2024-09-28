@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shippi/responsive.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/styles/styles.dart';
-import 'package:shippi/widgets/popups.dart';
-import 'package:shippi/widgets/video.dart';
+import 'package:udayah/responsive.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/styles/styles.dart';
+import 'package:udayah/widgets/popups.dart';
+import 'package:udayah/widgets/video.dart';
 import 'dart:html' as html;
 
 

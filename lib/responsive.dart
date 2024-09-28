@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/styles/styles.dart';
 
 class Responsive extends StatelessWidget {
   final Widget mobile;

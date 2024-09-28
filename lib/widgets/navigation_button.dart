@@ -1,4 +1,4 @@
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 class NavigationButton extends StatelessWidget {

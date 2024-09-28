@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:shippi/pages/dashboard_page.dart';
-import 'package:shippi/pages/landing_page.dart';
-import 'package:shippi/pages/login.dart';
-import 'package:shippi/pages/not_found_page.dart';
-import 'package:shippi/routes/auth_guard.dart';
+import 'package:udayah/pages/dashboard_page.dart';
+import 'package:udayah/pages/landing_page.dart';
+import 'package:udayah/pages/login.dart';
+import 'package:udayah/pages/not_found_page.dart';
+import 'package:udayah/routes/auth_guard.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/',

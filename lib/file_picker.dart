@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:shippi/provider/mailer.dart';
+import 'package:udayah/provider/mailer.dart';
 
 Future<void> _pickResume(BuildContext context) async {
   FilePickerResult? result = await FilePicker.platform.pickFiles(

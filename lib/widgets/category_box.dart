@@ -1,8 +1,9 @@
-import 'package:shippi/responsive.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/responsive.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/styles/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:shippi/widgets/video.dart';
+import 'package:udayah/widgets/video.dart';
+
 
 class CategoryBox extends StatelessWidget {
   final List<Widget> children;
@@ -52,7 +53,7 @@ class CategoryBox extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyles.heading1Black,
+                  style:  Responsive.isMobile(context) ? AppTextStyles.heading1BlackMobile : AppTextStyles.heading1Black,
                 ),
                 suffix ?? Container(),
                 // ElevatedButton(

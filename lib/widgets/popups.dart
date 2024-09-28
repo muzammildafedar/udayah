@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/styles/styles.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/styles/styles.dart';
 import 'dart:html' as html;
 
 void ShowSmtpSetupDialog(BuildContext context) {

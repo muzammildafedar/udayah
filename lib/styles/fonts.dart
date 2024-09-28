@@ -15,7 +15,12 @@ class AppTextStyles {
     color: Colors.black,
     fontSize: 32,
   );
-
+static const TextStyle heading1BlackMobile = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontSize: 26,
+  );
   static const TextStyle heading2 = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.bold,

@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:shippi/provider/companies.dart';
-import 'package:shippi/provider/mailer.dart';
-import 'package:shippi/styles/fonts.dart';
+import 'package:udayah/provider/companies.dart';
+import 'package:udayah/provider/mailer.dart';
+import 'package:udayah/styles/fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
 

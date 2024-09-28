@@ -1,14 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shippi/firebase_options.dart';
-import 'package:shippi/provider/auth.dart';
-import 'package:shippi/provider/companies.dart';
-import 'package:shippi/provider/mailer.dart';
-import 'package:shippi/provider/navigation.dart';
-import 'package:shippi/provider/smtp.dart';
-import 'package:shippi/routes/router.dart';
-import 'package:shippi/styles/fonts.dart';
+import 'package:udayah/firebase_options.dart';
+import 'package:udayah/provider/auth.dart';
+import 'package:udayah/provider/companies.dart';
+import 'package:udayah/provider/mailer.dart';
+import 'package:udayah/provider/navigation.dart';
+import 'package:udayah/provider/smtp.dart';
+import 'package:udayah/routes/router.dart';
+import 'package:udayah/styles/fonts.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {

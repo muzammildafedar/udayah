@@ -58,3 +58,4 @@ app.*.map.json
 /lib/firebase_options.dart
 /web/*.zip
 /functions/emails.json
+sec-file.txt

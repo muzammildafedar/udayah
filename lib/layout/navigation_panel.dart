@@ -1,11 +1,11 @@
 import 'package:provider/provider.dart';
-import 'package:shippi/models/enums/navigation_items.dart';
-import 'package:shippi/provider/auth.dart';
-import 'package:shippi/provider/navigation.dart';
-import 'package:shippi/responsive.dart';
-import 'package:shippi/widgets/navigation_button.dart';
+import 'package:udayah/models/enums/navigation_items.dart';
+import 'package:udayah/provider/auth.dart';
+import 'package:udayah/provider/navigation.dart';
+import 'package:udayah/responsive.dart';
+import 'package:udayah/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
-import 'package:shippi/widgets/popups.dart';
+import 'package:udayah/widgets/popups.dart';
 
 class NavigationPanel extends StatefulWidget {
   final Axis axis;

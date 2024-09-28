@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shippi/provider/auth.dart'; // Ensure this is imported
-import 'package:shippi/provider/smtp.dart';
-import 'package:shippi/styles/fonts.dart';
-import 'package:shippi/widgets/category_box.dart';
-import 'package:shippi/widgets/popups.dart';
+import 'package:udayah/provider/auth.dart'; // Ensure this is imported
+import 'package:udayah/provider/smtp.dart';
+import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/widgets/category_box.dart';
+import 'package:udayah/widgets/popups.dart';
 
 class SmtpSetup extends StatefulWidget {
   const SmtpSetup({Key? key}) : super(key: key);

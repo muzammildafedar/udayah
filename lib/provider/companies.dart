@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shippi/data/constants.dart';
-import 'package:shippi/encryption.dart';
-import 'package:shippi/models/companies_list.dart';
+import 'package:udayah/data/constants.dart';
+import 'package:udayah/encryption.dart';
+import 'package:udayah/models/companies_list.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 

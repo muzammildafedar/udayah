@@ -1,6 +1,6 @@
-import 'package:shippi/layout/navigation_panel.dart';
-import 'package:shippi/layout/top_app_bar.dart';
-import 'package:shippi/responsive.dart';
+import 'package:udayah/layout/navigation_panel.dart';
+import 'package:udayah/layout/top_app_bar.dart';
+import 'package:udayah/responsive.dart';
 import 'package:flutter/cupertino.dart';
 
 class AppLayout extends StatelessWidget {
