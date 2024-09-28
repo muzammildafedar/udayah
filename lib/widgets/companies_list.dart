@@ -178,7 +178,7 @@ class _CompaniesListState extends State<CompaniesList> {
                               height: 1,
                             ),
                             data.selectedEmail.isEmpty
-                                ? SelectEmail()
+                                ? Container()
                                 : Expanded(
                                     flex: 6,
                                     child: Container(
