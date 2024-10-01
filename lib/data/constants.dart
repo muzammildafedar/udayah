@@ -1,1 +1,1 @@
-const String baseUrl = "https://painful-nicolette-muzammildafedaar-245f8a4f.koyeb.app/api";
+const String baseUrl = "http://localhost:3000/api";

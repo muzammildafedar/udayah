@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:udayah/firebase_options.dart';
 import 'package:udayah/provider/auth.dart';
 import 'package:udayah/provider/companies.dart';
+import 'package:udayah/provider/hr_emails.dart';
 import 'package:udayah/provider/mailer.dart';
 import 'package:udayah/provider/navigation.dart';
 import 'package:udayah/provider/smtp.dart';
@@ -33,6 +34,8 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ActiveTabIndexProvider()),
         ChangeNotifierProvider(create: (_) => CompaniesProvider()),
         ChangeNotifierProvider(create: (_) => EmailProvider()),
+        ChangeNotifierProvider(create: (_) => HrEmailProvider()),
+
       ],
       child: MaterialApp.router(
         routerDelegate: router.routerDelegate,

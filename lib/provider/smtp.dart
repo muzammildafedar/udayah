@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:udayah/widgets/alerts.dart';
 
 class SmtpProvider with ChangeNotifier {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -20,9 +21,7 @@ class SmtpProvider with ChangeNotifier {
         'smtp_username': smtpUsername,
         'smtp_password': smtpPassword,
       });
-       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('SMTP settings saved.')),
-      );
+      ShowCustomDialog(context, "SMTP settings saved.");
     } catch (e) {
       print(e);
     }

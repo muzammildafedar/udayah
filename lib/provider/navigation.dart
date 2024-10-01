@@ -10,8 +10,6 @@ class ActiveTabIndexProvider extends ChangeNotifier {
   // ActiveTabIndexProvider(this._authProvider);
 
   int get fetchCurrentTabIndex => _activeTab;
-  
-  
 
   void setActiveTabIndex(int newIndex) {
     _activeTab = newIndex;

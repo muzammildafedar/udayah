@@ -1,22 +1,21 @@
 const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const axios = require('axios');
+const { Readable } = require('stream');
 
 
 const sendEmail = async (req, res) => {
     try {
-        
+
         const { smtpDetails, resumeUrl, from, to, subject, body } = req.body;
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-
-
         // Create a Nodemailer transporter using the SMTP details
         const transporter = nodemailer.createTransport({
             logger: true,  // Enables logging
-            debug: true,   // Enable debugging output
+            // debug: true,   // Enable debugging output
 
             host: smtpDetails.host,
             port: smtpDetails.port,
@@ -44,7 +43,7 @@ const sendEmail = async (req, res) => {
             html: body,
             attachments: [
                 {
-                    filename: 'resume.pdf', // Adjust the filename as needed
+                    filename: 'Resume.pdf', // Adjust the filename as needed
                     content: attachmentStream,
                 },
             ],

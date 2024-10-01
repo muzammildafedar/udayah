@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:udayah/data/constants.dart';
-
+import 'package:udayah/widgets/alerts.dart';
 
 class EmailProvider with ChangeNotifier {
   String? selectedFileName;
@@ -15,27 +16,30 @@ class EmailProvider with ChangeNotifier {
   bool _loading = false;
   bool get loading => _loading;
 
-
-   Future<http.Response> sendEmail({
-    required String ? to,
+  Future<http.Response> sendEmail({
+    required String? to,
     required String subject,
     required String body,
+    required BuildContext context,
   }) async {
     final user = FirebaseAuth.instance.currentUser;
-      _loading = true;
-      notifyListeners();
+    _loading = true;
+    notifyListeners();
 
     String apiUrl = '${baseUrl}/send-email';
     if (user == null) {
-      throw Exception('No user is currently logged in');
+      ShowCustomDialog(context, "No user is currently logged in");
     }
 
-    final smtpDetails = await _getSmtpDetails(user.email!);
+    final smtpDetails = await _getSmtpDetails(user!.email!);
     final resumeUrl = await getLatestResumeUrl();
-
+    if (smtpDetails == null) {
+      _loading = false;
+      notifyListeners();
+    }
     final Map<String, dynamic> requestBody = {
       "smtpDetails": {
-        "host": "${smtpDetails['smtp_server']}",
+        "host": "${smtpDetails!['smtp_server']}",
         "port": "${smtpDetails['smtp_port']}",
         "secure": false,
         "user": "${smtpDetails['smtp_username']}",
@@ -57,20 +61,19 @@ class EmailProvider with ChangeNotifier {
     );
 
     if (response.statusCode == 200) {
-  //     finally {
-  //   _loading = false;
-  //   notifyListeners();
-  // }
       // Successfully sent the email
       _loading = false;
-    notifyListeners();
+      notifyListeners();
       return response;
     } else {
+       _loading = false;
+      notifyListeners();
       // Handle errors here
       throw Exception('Failed to send email: ${response.statusCode}');
     }
   }
-  Future<Map<String, dynamic>> _getSmtpDetails(String userEmail) async {
+
+  Future<Map<String, dynamic>?> _getSmtpDetails(String userEmail) async {
     final smtpDoc = await FirebaseFirestore.instance
         .collection('smtp_details')
         .doc(userEmail)
@@ -79,11 +82,10 @@ class EmailProvider with ChangeNotifier {
     if (smtpDoc.exists) {
       return smtpDoc.data()!;
     } else {
-      throw Exception('SMTP details not found for user $userEmail');
+      return null;
+      // throw Exception('SMTP details not found for user $userEmail');
     }
   }
-
-
 
   Future<void> uploadFile() async {
     final user = FirebaseAuth.instance.currentUser;
@@ -96,7 +98,8 @@ class EmailProvider with ChangeNotifier {
       throw Exception("User email is null.");
     }
 
-    final fileName = selectedFileName ?? DateTime.now().millisecondsSinceEpoch.toString();
+    final fileName =
+        selectedFileName ?? DateTime.now().millisecondsSinceEpoch.toString();
     final storageRef = FirebaseStorage.instance
         .ref()
         .child('user_files')
@@ -126,9 +129,8 @@ class EmailProvider with ChangeNotifier {
           .collection('files');
 
       // Check if the metadata already exists
-      final existingFile = await filesCollection
-          .where('file_name', isEqualTo: fileName)
-          .get();
+      final existingFile =
+          await filesCollection.where('file_name', isEqualTo: fileName).get();
 
       if (existingFile.docs.isNotEmpty) {
         // Update existing metadata
@@ -145,6 +147,7 @@ class EmailProvider with ChangeNotifier {
       throw Exception('Failed to upload file and store metadata: $e');
     }
   }
+
   Future<Map<String, dynamic>?> getLatestResumeMetadata() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
@@ -185,6 +188,7 @@ class EmailProvider with ChangeNotifier {
     await getLatestResumeName();
     return metadata?['file_path'];
   }
+
   Future<Map<String, String>?> getLatestResumeName() async {
     final metadata = await getLatestResumeMetadata();
     if (metadata == null) return selectedFileName = null;

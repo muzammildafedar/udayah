@@ -1,0 +1,53 @@
+[
+    {
+      "email_id": "00001",
+      "email_address": "test1@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00002",
+      "email_address": "test2@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00003",
+      "email_address": "test3@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00004",
+      "email_address": "test4@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00005",
+      "email_address": "test5@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00006",
+      "email_address": "test6@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00007",
+      "email_address": "test7@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00008",
+      "email_address": "test8@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00009",
+      "email_address": "test9@in.ibm",
+      "added_by": "admin"
+    },
+    {
+      "email_id": "00010",
+      "email_address": "test10@in.ibm",
+      "added_by": "admin"
+    }
+  ]
+  

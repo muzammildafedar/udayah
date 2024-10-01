@@ -1,6 +1,9 @@
 const HREmail = require('../models/HrEmail');
 const { validationResult } = require('express-validator');
-const { encrypt } = require('../encryption');
+const { encrypt } = require('../encryption')
+const fs = require('fs');
+const path = require('path');
+;
 
 const addHREmail = async (req, res) => {
 
@@ -27,7 +30,7 @@ const addHREmail = async (req, res) => {
             website,
             added_by
         });
-        res.status(201).json(newHREmail);
+        res.status(201).json({ success: "Thanks for your contribution", data: newHREmail});
     } catch (error) {
         console.error('Error adding HR email:', error);
         res.status(500).json({ error: 'Failed to add HR email' });
@@ -45,7 +48,17 @@ const fetchCompanies = async (req, res) => {
 
         const { company_id } = req.params;
 
-        console.log(company_id)
+        // Load email.json file
+        const emailJsonPath = path.join(__dirname,'..', 'data', 'email.json');
+        let emailJsonData = [];
+
+        try {
+            const emailFile = fs.readFileSync(emailJsonPath, 'utf8');
+            emailJsonData = JSON.parse(emailFile);
+        } catch (err) {
+            console.error('Error reading email.json file:', err);
+        }
+
         if (company_id) {
             //fetch the company with company_id
             const email = await HREmail.findByPk(company_id)
@@ -61,8 +74,11 @@ const fetchCompanies = async (req, res) => {
             const emails = await HREmail.findAll()
             const plainEmails = emails.map(email => email.toJSON());
 
+            //merge two both the emails list
+            const combinedEmails = [...plainEmails, ...emailJsonData];
+
             //encrypt the data
-            const encryptedEmails = encrypt(JSON.stringify(plainEmails))
+            const encryptedEmails = encrypt(JSON.stringify(combinedEmails))
             res.status(200).json(encryptedEmails)
         }
     } catch (error) {

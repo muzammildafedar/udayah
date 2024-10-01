@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:udayah/widgets/alerts.dart';
 
 class AuthProvider with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -13,9 +14,6 @@ class AuthProvider with ChangeNotifier {
     try {
       UserCredential userCredential = await _auth.signInWithPopup(GoogleAuthProvider());
       _user = userCredential.user;
-      // print(_user);
-      print("Hogaya bhai...");
-
       // Redirect to dashboard after successful sign-in
       if (_user != null) {
         GoRouter.of(context).go('/dashboard');
@@ -23,6 +21,7 @@ class AuthProvider with ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
+      ShowCustomDialog(context, "Error during Google sign-in: $e");
       // print("Error during Google sign-in: $e");
     }
   }

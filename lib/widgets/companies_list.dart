@@ -7,6 +7,7 @@ import 'package:udayah/models/companies_list.dart';
 import 'package:udayah/provider/companies.dart';
 import 'package:udayah/responsive.dart';
 import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/widgets/contribute_dialog.dart';
 import 'package:udayah/widgets/email_temp.dart';
 import 'package:udayah/styles/styles.dart';
 import 'package:udayah/widgets/category_box.dart';
@@ -74,15 +75,33 @@ class _CompaniesListState extends State<CompaniesList> {
         suffix: data.selectedEmail.isEmpty
             ? null
             : GestureDetector(
-              onTap: () {
-                data.deselectEmailAddress();
-              },
+                onTap: () {
+                  data.deselectEmailAddress();
+                },
                 child: Transform.flip(
                     flipX: true, child: Icon(Icons.arrow_back_ios))),
         children: [
           Expanded(
             child: Column(
               children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Styles.brandBackgroundColor
+                  ),
+                  onPressed: () {
+                    // Replace "user@example.com" with actual email from Firebase Auth
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return ContributeDialog(addedBy: "user@example.com");
+                      },
+                    );
+                  },
+                  child: Text(
+                    'Contribute',
+                    style: AppTextStyles.regular,
+                  ),
+                ),
                 // Search Bar
                 data.selectedEmail.isEmpty
                     ? Padding(

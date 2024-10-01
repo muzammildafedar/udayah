@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:udayah/provider/auth.dart'; // Ensure this is imported
 import 'package:udayah/provider/smtp.dart';
 import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/styles/styles.dart';
 import 'package:udayah/widgets/category_box.dart';
 import 'package:udayah/widgets/popups.dart';
 
@@ -107,11 +108,15 @@ class _SmtpSetupState extends State<SmtpSetup> {
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue, // Button color
+                    backgroundColor:
+                        Styles.brandBackgroundColor, // Button color
                     padding: EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 12.0), // Padding
                   ),
-                  child: Text("Instructions", style: AppTextStyles.regular,),
+                  child: Text(
+                    "Instructions",
+                    style: AppTextStyles.regular,
+                  ),
                   onPressed: () => ShowSmtpSetupDialog(context),
                 ),
               ),
@@ -155,14 +160,14 @@ class _SmtpSetupState extends State<SmtpSetup> {
                       SizedBox(height: 32.0),
                       ElevatedButton.icon(
                         onPressed: () => _submitForm(context),
-                        icon: Icon(Icons.save),
+                        icon: Icon(Icons.save, color: Colors.white,),
                         label: Text(
                           'Save Settings',
                           style: AppTextStyles.regular,
                         ),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.blueAccent,
+                          backgroundColor:
+                              Styles.brandBackgroundColor, // Button color
                           padding: EdgeInsets.symmetric(
                             horizontal: 32.0,
                             vertical: 12.0,

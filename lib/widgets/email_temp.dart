@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:udayah/provider/companies.dart';
 import 'package:udayah/provider/mailer.dart';
 import 'package:udayah/styles/fonts.dart';
+import 'package:udayah/widgets/alerts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
 
@@ -91,7 +92,7 @@ class _EmailTemplatesState extends State<EmailTemplates> {
     }
   }
 
-  void _submitForm(String stage) async {
+  void _submitForm(String stage, BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       final String subject = _subjectController.text;
       final String email = _emailController.text;
@@ -107,15 +108,11 @@ class _EmailTemplatesState extends State<EmailTemplates> {
             to: stage == 'test' ? user!.email : comapaiesProvider.selectedEmail,
             subject: subject,
             body: body,
+            context: context
           );
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Email sent successfully!')),
-          );
+          ShowCustomDialog(context, "Email sent successfully!");
         } catch (e) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Failed to send email: $e')),
-          );
+          ShowCustomDialog(context, "SMTP Details Not found/Invalid");
         }
       });
     }
@@ -255,7 +252,7 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                           Center(
                             child: ElevatedButton.icon(
                               onPressed: () {
-                                _submitForm('test');
+                                _submitForm('test', context);
                               },
                               icon: Icon(Icons.send),
                               label: Text('Test'),
@@ -277,7 +274,7 @@ class _EmailTemplatesState extends State<EmailTemplates> {
                           Center(
                             child: ElevatedButton.icon(
                               onPressed: () {
-                                _submitForm('none');
+                                _submitForm('none', context);
                               },
                               icon: Icon(Icons.send),
                               label: Text('Send Cold Email'),
