@@ -21,24 +21,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Udayah offers AI-powered tools to help job hunters create standout resumes, send personalized cold emails, and optimize applications with an AI ATS system. Take control of your job search with our innovative platform.">
-  <meta name="keywords" content="HR Emails, AI resume builder, cold email templates, AI applicant tracking system, job hunting tools, job search optimization, job seekers, Udayah platform">
+  <meta name="keywords"
+    content="HR Emails, AI resume builder, cold email templates, AI applicant tracking system, job hunting tools, job search optimization, job seekers, Udayah platform">
   <meta name="author" content="Udayah">
   <meta name="robots" content="index, follow">
-  <title>Udayah | AI-Powered Job Search Tools & Resume Builder</title>
-  
+  <title>Udayah | AI-Powered Job Search Tools &amp; Resume Builder</title>
+
   <!-- Open Graph for social media -->
   <meta property="og:title" content="Udayah | AI-Powered Tools for Job Hunters">
-  <meta property="og:description" content="Boost your job search with Udayah’s AI-powered tools for resume creation, cold emailing, and application optimization.">
+  <meta property="og:description"
+    content="Boost your job search with Udayah’s AI-powered tools for resume creation, cold emailing, and application optimization.">
   <meta property="og:image" content="https://yourwebsite.com/image.jpg"> <!-- Use your website logo or image -->
   <meta property="og:url" content="https://www.udayah.in/">
   <meta property="og:type" content="website">
-  
+
   <!-- Twitter Card for better presentation on Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Udayah | AI Tools for Job Hunters">
-  <meta name="twitter:description" content="Leverage AI to build resumes, send cold emails, and optimize job applications.">
+  <meta name="twitter:description"
+    content="Leverage AI to build resumes, send cold emails, and optimize job applications.">
   <meta name="twitter:image" content="https://udayah.in/favicon.png">
-  
+
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -46,7 +49,7 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -60,7 +63,7 @@
     const serviceWorkerVersion = null;
   </script>
   <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+  <script src="flutter.js" defer=""></script>
   <style>
     #loader {
       position: fixed;
@@ -83,33 +86,115 @@
     }
   </style>
 
+
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    #splash {
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #5c1669;
+      background-size: 100% 100%;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .contain {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .stretch {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .welcome_msg {
+      position: absolute;
+      top: 75%;
+      /* You might adjust this based on the desired positioning */
+      left: 50%;
+      /* Center horizontally */
+      transform: translate(-50%, -50%);
+      /* Center the element */
+      text-align: center;
+      /* Center text within the div */
+      padding: 10px;
+      /* Add some padding */
+      font-size: 3vw;
+      /* Make font size responsive */
+      color: white;
+      /* Adjust color for better visibility */
+    }
+  </style>
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
 </head>
 
 <body>
-  <div id="loader" style="display: flex;">
-    <div class="container">
-      <div class="spinner-grow text-muted"></div>
-      <div class="spinner-grow text-primary"></div>
-      <div class="spinner-grow text-success"></div>
-      <div class="spinner-grow text-info"></div>
-      <div class="spinner-grow text-warning"></div>
-      <div class="spinner-grow text-danger"></div>
-      <div class="spinner-grow text-secondary"></div>
-      <div class="spinner-grow text-dark"></div>
-      <div class="spinner-grow text-light"></div>
-    </div>
-  </div>
-  <script>
-    window.addEventListener('load', function () {
-      const loader = document.getElementById('loader');
-      if (loader) {
-        // Attempt to hide loader after a small delay to ensure Flutter is loaded
-        setTimeout(function () {
-          loader.style.display = 'none';
-        }, 5000); // Adjust delay as needed
-      }
-    });
-  </script>
+  <picture id="splash">
+    <source
+      srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x"
+      media="(prefers-color-scheme: light)">
+    <source
+      srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x"
+      media="(prefers-color-scheme: dark)">
+    <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
+    <div class="welcome_msg">Just a moment! We're excited to help you navigate your job search.</div>
+
+  </picture>
+
 
   <script>
     window.addEventListener('load', function (ev) {
@@ -126,7 +211,7 @@
       });
     });
   </script>
-<script type="application/ld+json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -140,7 +225,9 @@
     }
   }
   </script>
-  
+
+
+
 </body>
 
 </html>
