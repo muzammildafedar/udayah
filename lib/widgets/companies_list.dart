@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -86,42 +87,58 @@ class _CompaniesListState extends State<CompaniesList> {
           Expanded(
             child: Column(
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Styles.brandBackgroundColor),
-                  onPressed: () {
-                    // Replace "user@example.com" with actual email from Firebase Auth
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ContributeDialog(addedBy: user?.email);
-                      },
-                    );
-                  },
-                  child: Text(
-                    'Contribute',
-                    style: AppTextStyles.regular,
-                  ),
-                ),
-                // Search Bar
-                data.selectedEmail.isEmpty
-                    ? Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          style: AppTextStyles.regularBlack,
-                          controller: _searchController,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            hintText: "Search Companies",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
+                Expanded(
+                  child: Row(
+                    children: [
+                      // Search Bar
+                      data.selectedEmail.isEmpty
+                          ? Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TextField(
+                                  style: AppTextStyles.regularBlack,
+                                  maxLines: 1,
+                                  controller: _searchController,
+                                  decoration: InputDecoration(
+                                    prefixIcon: const Icon(Icons.search),
+                                    hintText: "Search Companies",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.grey[200],
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Container(),
+                      SizedBox(
+                        height: 55,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Styles.brandBackgroundColor),
+                            onPressed: () {
+                              // Replace "user@example.com" with actual email from Firebase Auth
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return  ContributeDialog(
+                                      addedBy: user?.email);
+                                },
+                              );
+                            },
+                            child: const Text(
+                              'Contribute',
+                              style: AppTextStyles.regular,
                             ),
-                            filled: true,
-                            fillColor: Colors.grey[200],
                           ),
                         ),
-                      )
-                    : Container(),
+                      ),
+                    ],
+                  ),
+                ),
                 Responsive.isMobile(context)
                     ? Expanded(
                         child: Column(

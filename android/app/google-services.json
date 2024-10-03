@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "721690632690",
-    "project_id": "cold-reach",
-    "storage_bucket": "cold-reach.appspot.com"
+    "project_number": "646103040420",
+    "project_id": "udayah",
+    "storage_bucket": "udayah.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:721690632690:android:e3e5f6257f70c2e1d2cb6b",
+        "mobilesdk_app_id": "1:646103040420:android:42fb4139a7cbcac22f8131",
         "android_client_info": {
           "package_name": "com.example.shippi"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "721690632690-7pn0detecu9sq9emumjuarga2d7npipr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC4xGIpwyTYTrJ_W-A5f_Si-hwMN97P7I8"
+          "current_key": "AIzaSyCu0lj9PzdU56DgDkznA6Eel9cV8ReEZbM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "721690632690-7pn0detecu9sq9emumjuarga2d7npipr.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "721690632690-fp43u4uhdo6n03i7rgi29uq12rjpbu0j.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.shippi"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
