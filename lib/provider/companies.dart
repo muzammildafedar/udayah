@@ -13,6 +13,11 @@ class CompaniesProvider with ChangeNotifier {
   List<CompaniesEmail> _filteredEmails = [];
   bool _loading = true;
   String _selectedEmail = '';
+  bool _visible = false;
+  bool get visible => _visible; 
+  String _addedBy = '';
+
+  String get addedBy => _addedBy;
 
   List<CompaniesEmail> get emails => _filteredEmails;
   bool get loading => _loading;
@@ -21,11 +26,15 @@ class CompaniesProvider with ChangeNotifier {
   CompaniesProvider() {
     fetchEmails();
   }
-  selectEmailAddress(String val) {
+  selectEmailAddress(String val, bool visible, String added_by) {
+    _addedBy = added_by;
+     _visible = visible;
     _selectedEmail = val;
     notifyListeners();
   }
   deselectEmailAddress() {
+    _addedBy = '';
+    _visible = false;
     _selectedEmail = '';
     notifyListeners();
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -24,6 +25,7 @@ class CompaniesList extends StatefulWidget {
 class _CompaniesListState extends State<CompaniesList> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _searchController = TextEditingController();
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   void initState() {
@@ -122,8 +124,8 @@ class _CompaniesListState extends State<CompaniesList> {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return const ContributeDialog(
-                                      addedBy: "user@example.com");
+                                  return  ContributeDialog(
+                                      addedBy: user?.email);
                                 },
                               );
                             },
@@ -174,7 +176,9 @@ class _CompaniesListState extends State<CompaniesList> {
                                             child: ListTile(
                                               onTap: () {
                                                 data.selectEmailAddress(
-                                                    email.emailAddress);
+                                                    email.emailAddress,
+                                                    email.visible,
+                                                    email.addedBy);
                                                 // print("Pressed ${filteredCompanies[index]}");
                                               },
                                               leading: CustomCircleProfile(
@@ -300,7 +304,27 @@ class _CompaniesListState extends State<CompaniesList> {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 24.0),
+                                          SizedBox(
+                                            height: 5.0,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "Status: ${(data.visible == true) ? "Verified by Admin" : "Not verified"} ||",
+                                                style:
+                                                    AppTextStyles.regularBlack,
+                                              ),
+                                              SizedBox(
+                                                width: 5.0,
+                                              ),
+                                              Text(
+                                                "Added By: ${(data.addedBy == 'Admin') ? "Admin" : "User"}",
+                                                style:
+                                                    AppTextStyles.regularBlack,
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(height: 10.0),
                                           EmailTemplates(),
                                         ],
                                       ),
@@ -346,7 +370,10 @@ class _CompaniesListState extends State<CompaniesList> {
                                       child: ListTile(
                                         onTap: () {
                                           data.selectEmailAddress(
-                                              email.emailAddress);
+                                              email.emailAddress,
+                                              email.visible,
+                                              email.addedBy);
+
                                           // print("Pressed ${filteredCompanies[index]}");
                                         },
                                         leading: CustomCircleProfile(
@@ -472,7 +499,27 @@ class _CompaniesListState extends State<CompaniesList> {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 24.0),
+                                          SizedBox(
+                                            height: 5.0,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "Status: ${(data.visible == true) ? "Verified by Admin" : "Not verified"} ||",
+                                                style:
+                                                    AppTextStyles.regularBlack,
+                                              ),
+                                              SizedBox(
+                                                width: 5.0,
+                                              ),
+                                              Text(
+                                                "Added By: ${(data.addedBy == 'Admin') ? "Admin" : "User"}",
+                                                style:
+                                                    AppTextStyles.regularBlack,
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(height: 10.0),
                                           EmailTemplates(),
                                         ],
                                       ),
