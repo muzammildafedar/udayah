@@ -7,7 +7,6 @@ import 'package:udayah/widgets/popups.dart';
 import 'package:udayah/widgets/video.dart';
 import 'dart:html' as html;
 
-
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -150,9 +149,20 @@ class LandingPage extends StatelessWidget {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 TextSpan(
-                  text: '1500+ Verified HR email addresses (and still growing)\n',
+                  text:
+                      '4000+ Verified HR email addresses (and still growing)\n',
                   style: AppTextStyles.regular
                       .copyWith(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: '• ',
+                  style: AppTextStyles.regular
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text:
+                      'Contribute HR emails and support others in their job search\n',
+                  style: AppTextStyles.regular,
                 ),
                 TextSpan(
                   text: '• ',
@@ -179,24 +189,6 @@ class LandingPage extends StatelessWidget {
                 ),
                 TextSpan(
                   text: 'AI Resume Maker (releasing soon)\n',
-                  style: AppTextStyles.regular,
-                ),
-                 TextSpan(
-                  text: '• ',
-                  style: AppTextStyles.regular
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
-                 TextSpan(
-                  text: 'Verified HR Contact numbers (releasing soon)\n',
-                  style: AppTextStyles.regular,
-                ),
-                TextSpan(
-                  text: '• ',
-                  style: AppTextStyles.regular
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
-                TextSpan(
-                  text: '300+ Companies actively seeking talent\n',
                   style: AppTextStyles.regular,
                 ),
               ],
@@ -250,10 +242,12 @@ class LandingPage extends StatelessWidget {
         SizedBox(height: 10),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Styles.brandBackgroundColor,  // Set the background color
+            backgroundColor:
+                Styles.brandBackgroundColor, // Set the background color
           ),
           onPressed: () {
-             html.window.open('https://github.com/muzammildafedar/udayah','new tab');
+            html.window
+                .open('https://github.com/muzammildafedar/udayah', 'new tab');
             // showDialog(
             //   context: context,
             //   builder: (BuildContext context) {
@@ -261,11 +255,13 @@ class LandingPage extends StatelessWidget {
             //   },
             // );
           },
-          child: Text('Become a Contributor', style: AppTextStyles.regular,),
+          child: Text(
+            'Become a Contributor',
+            style: AppTextStyles.regular,
+          ),
         ),
-       // Menu with pop-ups
-                SizedBox(height: 40),
-
+        // Menu with pop-ups
+        SizedBox(height: 40),
       ],
     );
   }
@@ -288,6 +284,4 @@ class LandingPage extends StatelessWidget {
       ),
     );
   }
-
-  
 }
