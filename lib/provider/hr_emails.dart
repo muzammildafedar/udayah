@@ -28,7 +28,7 @@ class HrEmailProvider with ChangeNotifier {
       } else {
         // Handle failure
         final responseData = jsonDecode(response.body);
-        String errorMessage = responseData['error'];
+        String errorMessage = responseData['errors'][0]["msg"];
         throw Exception('Failed: ${errorMessage}');
       }
     } catch (error) {

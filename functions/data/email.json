@@ -1,53 +1,102 @@
 [
-    {
-      "email_id": "00001",
-      "email_address": "test1@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00002",
-      "email_address": "test2@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00003",
-      "email_address": "test3@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00004",
-      "email_address": "test4@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00005",
-      "email_address": "test5@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00006",
-      "email_address": "test6@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00007",
-      "email_address": "test7@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00008",
-      "email_address": "test8@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00009",
-      "email_address": "test9@in.ibm",
-      "added_by": "admin"
-    },
-    {
-      "email_id": "00010",
-      "email_address": "test10@in.ibm",
-      "added_by": "admin"
-    }
-  ]
-  
+  {
+    "id": "AUTO000001",
+    "email_address": "test@in.ibm",
+    "company_name": "NA",
+    "website": "NA",
+    "visible": true,
+    "added_by": "Admin",
+    "createdAt": "NA",
+    "updatedAt": "NA"
+  },
+  {
+    "id": "AUTO000002",
+    "email_address": "john.doe@example.com",
+    "company_name": "Example Corp",
+    "website": "www.example.com",
+    "visible": true,
+    "added_by": "Admin",
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "AUTO000003",
+    "email_address": "jane.smith@example.org",
+    "company_name": "Smith Industries",
+    "website": "www.smithindustries.org",
+    "visible": false,
+    "added_by": "User1",
+    "createdAt": "2024-02-20T11:30:00Z",
+    "updatedAt": "2024-02-20T11:30:00Z"
+  },
+  {
+    "id": "AUTO000004",
+    "email_address": "alice.johnson@domain.com",
+    "company_name": "Tech Innovations",
+    "website": "www.techinnovations.com",
+    "visible": true,
+    "added_by": "User2",
+    "createdAt": "2024-03-05T09:15:00Z",
+    "updatedAt": "2024-03-05T09:15:00Z"
+  },
+  {
+    "id": "AUTO000005",
+    "email_address": "bob.brown@service.net",
+    "company_name": "Brown Services",
+    "website": "www.brownservices.net",
+    "visible": true,
+    "added_by": "Admin",
+    "createdAt": "2024-04-10T14:00:00Z",
+    "updatedAt": "2024-04-10T14:00:00Z"
+  },
+  {
+    "id": "AUTO000006",
+    "email_address": "charlie.white@business.com",
+    "company_name": "White Enterprises",
+    "website": "www.whiteenterprises.com",
+    "visible": false,
+    "added_by": "User3",
+    "createdAt": "2024-05-12T16:45:00Z",
+    "updatedAt": "2024-05-12T16:45:00Z"
+  },
+  {
+    "id": "AUTO000007",
+    "email_address": "diana.prince@superhero.com",
+    "company_name": "Wonder Corp",
+    "website": "www.wondercorp.com",
+    "visible": true,
+    "added_by": "Admin",
+    "createdAt": "2024-06-01T08:30:00Z",
+    "updatedAt": "2024-06-01T08:30:00Z"
+  },
+  {
+    "id": "AUTO000008",
+    "email_address": "bruce.wayne@batman.com",
+    "company_name": "Wayne Enterprises",
+    "website": "www.wayneenterprises.com",
+    "visible": true,
+    "added_by": "User4",
+    "createdAt": "2024-07-07T10:00:00Z",
+    "updatedAt": "2024-07-07T10:00:00Z"
+  },
+  {
+    "id": "AUTO000009",
+    "email_address": "peter.parker@spiderman.org",
+    "company_name": "Parker Industries",
+    "website": "www.parkerindustries.org",
+    "visible": false,
+    "added_by": "User5",
+    "createdAt": "2024-08-15T14:30:00Z",
+    "updatedAt": "2024-08-15T14:30:00Z"
+  },
+  {
+    "id": "AUTO000010",
+    "email_address": "clark.kent@dailyplanet.com",
+    "company_name": "Daily Planet",
+    "website": "www.dailyplanet.com",
+    "visible": true,
+    "added_by": "Admin",
+    "createdAt": "2024-09-20T12:00:00Z",
+    "updatedAt": "2024-09-20T12:00:00Z"
+  }
+]

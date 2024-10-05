@@ -203,7 +203,7 @@ void showPopLandingPage(BuildContext context, String title) {
                               style: AppTextStyles.regular),
                           TextSpan(
                             text:
-                                'As of now, Udayah is free to use. However, we reserve the right to introduce paid services in the future, with or without prior notice. Your continued use of the services after the introduction of any paid services will constitute your acceptance of such changes.\n\n',
+                                'As of now, Udayah is free to use. However, we reserve the right to introduce paid services in the future for AI tools only, with or without prior notice. Your continued use of the services after the introduction of any paid services will constitute your acceptance of such changes.\n\n',
                             style: AppTextStyles.regular,
                           ),
                           TextSpan(

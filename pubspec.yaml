@@ -25,11 +25,28 @@ dependencies:
   encrypt: ^5.0.1
   pointycastle: ^3.4.1
   youtube_player_iframe: ^5.0.0
+  flutter_native_splash:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  flutter_launcher_icons:
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/favicon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/favicon.png"
+    background_color: "#1C1C3A"
+    theme_color: "#1C1C3A"
+  macos:
+    generate: true
+    image_path: "assets/favicon.png"
+
 
 flutter:
   uses-material-design: true
