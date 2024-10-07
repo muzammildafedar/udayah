@@ -31,7 +31,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
       return NavigationButton(
         onPressed: () {
           activeTabProvider.setActiveTabIndex(item.index);
-          if (activeTabProvider.fetchCurrentTabIndex >= 2) {
+          if (activeTabProvider.fetchCurrentTabIndex == 3) {
             activeTabProvider.setActiveTabIndex(item.index - 1);
             ShowLogoutDialog(context, logout);
           }
@@ -51,7 +51,7 @@ class _NavigationPanelState extends State<NavigationPanel> {
           ? const EdgeInsets.symmetric(horizontal: 30, vertical: 20)
           : const EdgeInsets.all(10),
       child: widget.axis == Axis.vertical
-          ? Column(
+          ? Column( 
               mainAxisAlignment: MainAxisAlignment.center,  // Center items vertically
               children: NavigationItems.values
                   .map((e) => buildNavigationButton(e))

@@ -2,20 +2,20 @@ import 'package:udayah/responsive.dart';
 import 'package:udayah/styles/fonts.dart';
 import 'package:udayah/styles/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:udayah/widgets/video.dart';
-
 
 class CategoryBox extends StatelessWidget {
   final List<Widget> children;
   final Widget? suffix;
   final String title;
+  final CrossAxisAlignment? crossAxisAlignment;
 
   const CategoryBox({
-    Key? key,
+    super.key,
     this.suffix,
     required this.children,
     required this.title,
-  }) : super(key: key);
+    this.crossAxisAlignment,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CategoryBox extends StatelessWidget {
         borderRadius: Styles.defaultBorderRadius,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
         children: [
           // Responsive.isMobile(context) || Responsive.isTablet(context)
           //     ? Flexible(
@@ -53,7 +53,9 @@ class CategoryBox extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style:  Responsive.isMobile(context) ? AppTextStyles.heading1BlackMobile : AppTextStyles.heading1Black,
+                  style: Responsive.isMobile(context)
+                      ? AppTextStyles.heading1BlackMobile
+                      : AppTextStyles.heading1Black,
                 ),
                 suffix ?? Container(),
                 // ElevatedButton(

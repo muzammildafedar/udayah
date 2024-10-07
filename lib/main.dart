@@ -41,7 +41,7 @@ class App extends StatelessWidget {
         routerDelegate: router.routerDelegate,
         routeInformationParser: router.routeInformationParser,
         routeInformationProvider: router.routeInformationProvider,
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,  
         title: "Udayah | AI-Powered Tools for Job Hunters", 
 
         theme: ThemeData(
