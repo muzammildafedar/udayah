@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:udayah/layout/app_layout.dart';
-import 'package:udayah/provider/auth.dart';
 import 'package:udayah/provider/navigation.dart';
-import 'package:udayah/responsive.dart';
 import 'package:udayah/widgets/companies_list.dart';
+import 'package:udayah/widgets/profile_page.dart';
 import 'package:udayah/widgets/smtp_page.dart';
 
 class Dashboard extends StatefulWidget {
@@ -17,7 +16,8 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   List<Widget> screens = [
     CompaniesList(),
-    SmtpSetup(),
+    const SmtpSetup(),
+    const ProfilePage(),
   ];
 
   @override
@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
                   // Main Panel
                   Expanded(
                     flex: 5,
-                    child: _.fetchCurrentTabIndex >= 2
+                    child: _.fetchCurrentTabIndex >= 3
                         ? Container()
                         : screens[_.fetchCurrentTabIndex],
                   ),

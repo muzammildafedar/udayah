@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:udayah/data/constants.dart';
@@ -45,8 +47,10 @@ class CompaniesProvider with ChangeNotifier {
     notifyListeners();
 
     try {
+      log("Fetching emails from: $apiUrl");
       final response = await http.get(Uri.parse(apiUrl));
-
+      log("Response: ${response.body}");
+      log("Response Code: ${response.statusCode}");
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final decryptedData =
