@@ -14,8 +14,8 @@ Before contributing, kindly outline the use case, benefits, and goal of your pro
 
 ### Flutter Setup
 
-1. Install Flutter by following the official [Flutter documentation](https://docs.flutter.dev/get-started/install).
-2. Set up your own Firebase instance and link it to the project.
+1. Install Flutter version **3.19.6** by following the official [Flutter documentation](https://docs.flutter.dev/get-started/install).
+2. Set up your own Firebase instance and link it to the project for in-app account creation, later we will setup with share Firebase account.
 3. Navigate to the `lib/` folder within the Flutter project to begin development.
 4. For more information on building for the web, refer to the [Flutter Web documentation](https://docs.flutter.dev/platform-integration/web/building).
 5. To run the project in Chrome, execute the following command:  
