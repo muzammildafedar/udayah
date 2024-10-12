@@ -7,9 +7,9 @@ import 'package:udayah/styles/fonts.dart';
 import 'package:udayah/styles/styles.dart';
 import 'package:udayah/widgets/category_box.dart';
 import 'package:udayah/widgets/popups.dart';
-
+  
 class SmtpSetup extends StatefulWidget {
-  const SmtpSetup({Key? key}) : super(key: key);
+  const SmtpSetup({super.key});
 
   @override
   State<SmtpSetup> createState() => _SmtpSetupState();
@@ -110,10 +110,10 @@ class _SmtpSetupState extends State<SmtpSetup> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         Styles.brandBackgroundColor, // Button color
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 12.0), // Padding
                   ),
-                  child: Text(
+                  child: const Text(
                     "Instructions",
                     style: AppTextStyles.regular,
                   ),
@@ -135,21 +135,21 @@ class _SmtpSetupState extends State<SmtpSetup> {
                         validator: (value) =>
                             _validateNotEmpty(value, 'SMTP Server'),
                       ),
-                      SizedBox(height: 16.0),
+                      const SizedBox(height: 16.0),
                       _buildTextField(
                         controller: _smtpPortController,
                         labelText: 'SMTP Port',
                         keyboardType: TextInputType.number,
                         validator: _validatePort,
                       ),
-                      SizedBox(height: 16.0),
+                      const SizedBox(height: 16.0),
                       _buildTextField(
                         controller: _smtpUsernameController,
                         labelText: 'SMTP Username',
                         validator: (value) =>
                             _validateNotEmpty(value, 'SMTP Username'),
                       ),
-                      SizedBox(height: 16.0),
+                      const SizedBox(height: 16.0),
                       _buildTextField(
                         controller: _smtpPasswordController,
                         labelText: 'SMTP Password',
@@ -157,18 +157,18 @@ class _SmtpSetupState extends State<SmtpSetup> {
                         validator: (value) =>
                             _validateNotEmpty(value, 'SMTP Password'),
                       ),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                       ElevatedButton.icon(
                         onPressed: () => _submitForm(context),
-                        icon: Icon(Icons.save, color: Colors.white,),
-                        label: Text(
+                        icon: const Icon(Icons.save, color: Colors.white,),
+                        label: const Text(
                           'Save Settings',
                           style: AppTextStyles.regular,
                         ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               Styles.brandBackgroundColor, // Button color
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 32.0,
                             vertical: 12.0,
                           ),
