@@ -64,31 +64,74 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer=""></script>
-  <style>
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    #loader .spinner-grow {
-      width: 1rem;
-      height: 1rem;
-      margin: 5px;
-
-    }
-  </style>
-
-
-
   <style id="splash-screen-style">
+    /* HTML: <div class="loader"></div> */
+    .loader {
+      --c1: #000;
+      --c2: #ca82d7;
+      width: 40px;
+      height: 80px;
+      border-top: 4px solid var(--c1);
+      border-bottom: 4px solid var(--c1);
+      background: linear-gradient(90deg, var(--c1) 2px, var(--c2) 0 5px, var(--c1) 0) 50%/7px 8px no-repeat;
+      display: grid;
+      overflow: hidden;
+      animation: l5-0 2s infinite linear;
+    }
+
+    .loader::before,
+    .loader::after {
+      content: "";
+      grid-area: 1/1;
+      width: 75%;
+      height: calc(50% - 4px);
+      margin: 0 auto;
+      border: 2px solid var(--c1);
+      border-top: 0;
+      box-sizing: content-box;
+      border-radius: 0 0 40% 40%;
+      -webkit-mask:
+        linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      background:
+        linear-gradient(var(--d, 0deg), var(--c2) 50%, #0000 0) bottom /100% 205%,
+        linear-gradient(var(--c2) 0 0) center/0 100%;
+      background-repeat: no-repeat;
+      animation: inherit;
+      animation-name: l5-1;
+    }
+
+    .loader::after {
+      transform-origin: 50% calc(100% + 2px);
+      transform: scaleY(-1);
+      --s: 3px;
+      --d: 180deg;
+    }
+
+    @keyframes l5-0 {
+      80% {
+        transform: rotate(0)
+      }
+
+      100% {
+        transform: rotate(0.5turn)
+      }
+    }
+
+    @keyframes l5-1 {
+      10%,
+      70% {
+        background-size: 100% 205%, var(--s, 0) 100%
+      }
+
+      70%,
+      100% {
+        background-position: top, center
+      }
+    }
+
     html {
       height: 100%
     }
@@ -155,21 +198,10 @@
     }
 
     .welcome_msg {
-      position: absolute;
-      top: 75%;
-      /* You might adjust this based on the desired positioning */
-      left: 50%;
-      /* Center horizontally */
-      transform: translate(-50%, -50%);
-      /* Center the element */
-      text-align: center;
-      /* Center text within the div */
-      padding: 10px;
-      /* Add some padding */
-      font-size: 3vw;
-      /* Make font size responsive */
-      color: white;
-      /* Adjust color for better visibility */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
     }
   </style>
   <script id="splash-screen-script">
@@ -190,7 +222,7 @@
       srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x"
       media="(prefers-color-scheme: dark)">
     <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-    <div class="welcome_msg">Just a moment! We're excited to help you navigate your job search.</div>
+    <span class="loader center"></span>
 
   </picture>
 
