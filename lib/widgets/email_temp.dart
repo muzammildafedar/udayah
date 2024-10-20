@@ -125,183 +125,182 @@ class _EmailTemplatesState extends State<EmailTemplates> {
     _emailController.text = comapaiesProvider.selectedEmail;
     return Consumer<EmailProvider>(builder: (context, data, child) {
       if (data.loading) {
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       }
-      return Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 16.0,
-                ),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Send Email', style: AppTextStyles.regularBlack),
-                      SizedBox(height: 16.0),
-                      TextFormField(
-                        style: AppTextStyles.regularBlack,
-                        controller: _subjectController,
-                        decoration: InputDecoration(
-                          labelText: 'Subject',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          prefixIcon: Icon(Icons.subject),
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 16.0,
+              ),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Send Email', style: AppTextStyles.regularBlack),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      style: AppTextStyles.regularBlack,
+                      controller: _subjectController,
+                      decoration: InputDecoration(
+                        labelText: 'Subject',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        validator: (value) =>
-                            _validateNotEmpty(value, 'Subject'),
+                        prefixIcon: const Icon(Icons.subject),
                       ),
-                      SizedBox(height: 16.0),
-                      TextFormField(
-                        style: AppTextStyles.regularBlack,
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          prefixIcon: Icon(Icons.email),
+                      validator: (value) =>
+                          _validateNotEmpty(value, 'Subject'),
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      style: AppTextStyles.regularBlack,
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        validator: (value) => _validateNotEmpty(value, 'Email'),
+                        prefixIcon: const Icon(Icons.email),
                       ),
-                      SizedBox(height: 16.0),
-                      GestureDetector(
-                        onTap: _pickResume,
-                        child: AbsorbPointer(
-                          child: Consumer<EmailProvider>(
-                            builder: (context, provider, _) {
-                              return TextFormField(
-                                decoration: InputDecoration(
-                                  labelText: provider.selectedFileName == null
-                                      ? 'Attach your resume'
-                                      : 'Resume attached: ${provider.selectedFileName}',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  prefixIcon: Icon(Icons.attach_file),
+                      validator: (value) => _validateNotEmpty(value, 'Email'),
+                    ),
+                    const SizedBox(height: 16.0),
+                    GestureDetector(
+                      onTap: _pickResume,
+                      child: AbsorbPointer(
+                        child: Consumer<EmailProvider>(
+                          builder: (context, provider, _) {
+                            return TextFormField(
+                              decoration: InputDecoration(
+                                labelText: provider.selectedFileName == null
+                                    ? 'Attach your resume'
+                                    : 'Resume attached: ${provider.selectedFileName}',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                validator: (value) {
-                                  if (provider.selectedFileName == null) {
-                                    return 'Please attach your resume.';
-                                  }
-                                  return null;
-                                },
-                              );
-                            },
-                          ),
+                                prefixIcon: const Icon(Icons.attach_file),
+                              ),
+                              validator: (value) {
+                                if (provider.selectedFileName == null) {
+                                  return 'Please attach your resume.';
+                                }
+                                return null;
+                              },
+                            );
+                          },
                         ),
                       ),
-                      _isLoading
-                          ? CircularProgressIndicator()
-                          : _errorMessage != null
-                              ? Text(_errorMessage!)
-                              : _resumeUrl != null
-                                  ? Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Latest Resume:',
+                    ),
+                    _isLoading
+                        ? const CircularProgressIndicator()
+                        : _errorMessage != null
+                            ? Text(_errorMessage!)
+                            : _resumeUrl != null
+                                ? Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        'Latest Resume:',
+                                        style: AppTextStyles.regularBlack,
+                                      ),
+                                      const SizedBox(height: 20),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          _launchURL(_resumeUrl!);
+                                        },
+                                        child: const Text(
+                                          'View Resume',
                                           style: AppTextStyles.regularBlack,
                                         ),
-                                        SizedBox(height: 20),
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            _launchURL(_resumeUrl!);
-                                          },
-                                          child: Text(
-                                            'View Resume',
-                                            style: AppTextStyles.regularBlack,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Text('No resume found.',
-                                      style: AppTextStyles.regularBlack),
-                      SizedBox(height: 16.0),
-                      Text('Email Content', style: AppTextStyles.regularBlack),
-                      SizedBox(height: 8.0),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey.shade300,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ],
+                                  )
+                                : const Text('No resume found.',
+                                    style: AppTextStyles.regularBlack),
+                    const SizedBox(height: 16.0),
+                    const Text('Email Content', style: AppTextStyles.regularBlack),
+                    const SizedBox(height: 8.0),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey.shade300,
                         ),
-                        height: 300,
-                        child: HtmlEditor(
-                          controller: _htmlEditorController,
-                          htmlEditorOptions: HtmlEditorOptions(
-                            hint: 'Your email content here...',
-                          ),
-                          otherOptions: OtherOptions(
-                            height: 400,
-                          ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      height: 300,
+                      child: HtmlEditor(
+                        controller: _htmlEditorController,
+                        htmlEditorOptions: const HtmlEditorOptions(
+                          hint: 'Your email content here...',
+                        ),
+                        otherOptions: const OtherOptions(
+                          height: 400,
                         ),
                       ),
-                      SizedBox(height: 32.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Center(
-                            child: ElevatedButton.icon(
-                              onPressed: () {
-                                _submitForm('test', context);
-                              },
-                              icon: Icon(Icons.send),
-                              label: Text('Test'),
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 32.0,
-                                  vertical: 16.0,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                textStyle: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                    ),
+                    const SizedBox(height: 32.0),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              _submitForm('test', context);
+                            },
+                            icon: const Icon(Icons.send),
+                            label: const Text('Test'),
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 16.0,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          Center(
-                            child: ElevatedButton.icon(
-                              onPressed: () {
-                                _submitForm('none', context);
-                              },
-                              icon: Icon(Icons.send),
-                              label: Text('Send Cold Email'),
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 32.0,
-                                  vertical: 16.0,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                textStyle: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        ),
+                        const SizedBox(width: 16,),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              _submitForm('none', context);
+                            },
+                            icon: const Icon(Icons.send),
+                            label: const Text('Send Cold Email'),
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 16.0,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       );
     });
   }
