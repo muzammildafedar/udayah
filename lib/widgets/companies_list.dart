@@ -26,6 +26,7 @@ class _CompaniesListState extends State<CompaniesList> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _searchController = TextEditingController();
   final user = FirebaseAuth.instance.currentUser;
+  bool isCopied = false;
 
   @override
   void initState() {
@@ -65,6 +66,21 @@ class _CompaniesListState extends State<CompaniesList> {
         ),
       ),
     );
+  }
+
+  void _copyToClipboard(String text) {
+    Clipboard.setData(ClipboardData(text: text)).then((_) {
+      // Optionally, show a message to indicate that the text has been copied
+      // print('Text copied to clipboard!');
+      setState(() {
+        isCopied = true;
+        Future.delayed(const Duration(seconds: 2)).then((value) {
+          setState(() {
+            isCopied = false;
+          });
+        });
+      });
+    });
   }
 
   @override
@@ -287,12 +303,18 @@ class _CompaniesListState extends State<CompaniesList> {
                                                 width: 10,
                                               ),
                                               ElevatedButton(
+                                                style: ButtonStyle(
+                                                  backgroundColor: isCopied
+                                                      ? WidgetStatePropertyAll(
+                                                          Colors.green[200])
+                                                      : null,
+                                                ),
                                                 onPressed: () {
                                                   _copyToClipboard(
                                                       data.selectedEmail);
                                                 },
                                                 child: Text(
-                                                  'Copy',
+                                                  isCopied ? 'Copied' : 'Copy',
                                                   style: AppTextStyles
                                                       .regularBlack,
                                                 ),
@@ -482,15 +504,21 @@ class _CompaniesListState extends State<CompaniesList> {
                                                 width: 10,
                                               ),
                                               ElevatedButton(
+                                                style: ButtonStyle(
+                                                  backgroundColor: isCopied
+                                                      ? WidgetStatePropertyAll(
+                                                          Colors.green[200])
+                                                      : null,
+                                                ),
                                                 onPressed: () {
                                                   _copyToClipboard(
                                                       data.selectedEmail);
                                                 },
                                                 child: Text(
-                                                  'Copy',
-                                                  style: AppTextStyles
-                                                      .regularBlack,
-                                                ),
+                                                        isCopied ? 'Copied' : 'Copy',
+                                                        style: AppTextStyles
+                                                            .regularBlack,
+                                                      ),
                                               ),
                                             ],
                                           ),
@@ -542,13 +570,6 @@ String getDomainFromEmail(String email) {
   } else {
     return ''; // Return an empty string if the email is invalid
   }
-}
-
-void _copyToClipboard(String text) {
-  Clipboard.setData(ClipboardData(text: text)).then((_) {
-    // Optionally, show a message to indicate that the text has been copied
-    // print('Text copied to clipboard!');
-  });
 }
 
 Widget SelectEmail() {
